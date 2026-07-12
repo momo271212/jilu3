@@ -14,7 +14,9 @@
       "Bash(findstr 43844)",
       "Bash(taskkill /PID 43844 /F)",
       "Bash(taskkill /F /PID 43844)",
-      "Bash(taskkill -F -PID 43844)"
+      "Bash(taskkill -F -PID 43844)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ],
     "additionalDirectories": [
       "\\tmp"
