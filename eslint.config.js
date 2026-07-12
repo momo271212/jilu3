@@ -4,15 +4,14 @@ import tseslint from "typescript-eslint";
 export default tseslint.config(
   {
     ignores: [
-      "dist/**",
-      "node_modules/**",
-      ".next/**",
-      "out/**",
-      "*.config.*",
+      "**/dist/**",
+      "**/node_modules/**",
+      "**/.next/**",
+      "**/out/**",
       "next-env.d.ts",
-      "test_ocr.*",
-      "generate_test_image.*",
-      "src/generated/**",
+      "**/test_ocr.*",
+      "**/generate_test_image.*",
+      "**/src/generated/**",
     ],
   },
   js.configs.recommended,
