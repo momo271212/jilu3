@@ -1,0 +1,273 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* App custom palette */
+  --color-sea-blue: #B4D4E7;
+  --color-sea-blue-deep: #8BB8D4;
+  --color-lemon: #F7E8A0;
+  --color-lemon-deep: #EDDA78;
+  --color-cream: #F5D5C8;
+  --color-cream-deep: #EDBFAE;
+  --color-moss: #7B9E6B;
+  --color-moss-light: #9BC48B;
+  --color-leaf-green: #7CB968;
+  --color-earth: #C4A882;
+  --color-earth-deep: #A68B6B;
+  --color-sky: #D4E8F7;
+  --color-warm-white: #FFF8F0;
+  --color-soft-text: #6B7B8D;
+  --color-calm-green: #A8C9A0;
+  --color-hint-yellow: #F5D76E;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #FFF8F0;
+  --foreground: #4A5568;
+  --card: #FFFFFF;
+  --card-foreground: #4A5568;
+  --popover: #FFFFFF;
+  --popover-foreground: #4A5568;
+  --primary: #7B9E6B;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F5D5C8;
+  --secondary-foreground: #6B5B4E;
+  --muted: #F0E8E0;
+  --muted-foreground: #8B9EB0;
+  --accent: #B4D4E7;
+  --accent-foreground: #4A6A7E;
+  --destructive: #D4A0A0;
+  --border: #E8DFD5;
+  --input: #E8DFD5;
+  --ring: #B4D4E7;
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Soft scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4C8B8;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C4A882;
+}
+
+/* Gentle sway animation for the tree */
+@keyframes gentle-sway {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(0.5deg); }
+  75% { transform: rotate(-0.5deg); }
+}
+
+/* Leaf pulse for yellow leaves */
+@keyframes leaf-pulse {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+/* Snow fall animation */
+@keyframes snow-fall {
+  0% {
+    transform: translateY(-20px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: 0.8; }
+  90% { opacity: 0.6; }
+  100% {
+    transform: translateY(500px) translateX(30px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Bubble wobble */
+@keyframes bubble-wobble {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(2px, -3px); }
+  40% { transform: translate(-2px, -1px); }
+  60% { transform: translate(1px, 2px); }
+  80% { transform: translate(-1px, -2px); }
+}
+
+/* Background gradient shift for hibernation */
+@keyframes hibernate-bg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animate-snow {
+  animation: snow-fall linear infinite;
+}
+
+.animate-bubble-wobble {
+  animation: bubble-wobble 4s ease-in-out infinite;
+}
+
+/* App background - warm gradient */
+.app-bg {
+  background: linear-gradient(
+    180deg,
+    #D4E8F7 0%,
+    #E8F0F8 25%,
+    #FFF8F0 50%,
+    #FFF0E6 75%,
+    #F5D5C8 100%
+  );
+  min-height: 100vh;
+}
+
+.app-bg-hibernate {
+  background: linear-gradient(
+    180deg,
+    #C8D8E8 0%,
+    #D8E4F0 25%,
+    #E8ECF2 50%,
+    #E0E4EA 75%,
+    #D4D8E0 100%
+  );
+  background-size: 200% 200%;
+  animation: hibernate-bg 12s ease infinite;
+  min-height: 100vh;
+}
+
+/* Soft card style */
+.soft-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(180, 160, 140, 0.08);
+}
+
+/* Leaf shape */
+.leaf-shape {
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+
+/* Gentle button style */
+.gentle-btn {
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 1rem;
+  padding: 0.75rem 1.25rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.gentle-btn:active {
+  transform: scale(0.96);
+}
+
+/* Drawer overrides for soft feel */
+[data-radix-popper-content-wrapper] {
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #B4D4E7;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Card flip animation for recite cards */
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card shimmer for AI generation loading */
+@keyframes card-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.card-skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.1) 75%);
+  background-size: 200% 100%;
+  animation: card-shimmer 2s ease-in-out infinite;
+}

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)",
+      "Bash(./node_modules/.bin/tsc --noEmit src/store/useStore.ts src/components/ReciteDrawer.tsx)",
+      "Bash(start http://localhost:3000)"
+    ]
+  }
+}
